@@ -1,0 +1,242 @@
+USE s17guest45;
+GO
+
+INSERT INTO PERSON VALUES
+('Kevin','Russell','1029 Birchwood Dr','Olympia','98501','Washington','KRussell@yahoo.com'),
+('Katelyn','Rivera','1030 Ambush Dr.','Bury','PE17',	'England','KRivera@yahoo.com'),
+('Alfredo','Ortega','1032 Buena Vista','North Ryde','2113','New South Wales','AOrtega@yahoo.com'),
+('Andrea','Campbell','1032 Coats Road','Stoke-on-Trent','AS23','England','ACampbell@yahoo.com'),
+('Jeremy','Peterson','1035 Arguello Blvd.','San Diego','92102','California','JPeterson@yahoo.com'),
+('Arianna','Ramirez','1036 Mason Dr','Port Orchard','98366','Washington','ARamirez@yahoo.com'),
+('Mario','Sharma','1039 Adelaide St.','Port Macquarie','2444','New South Wales','MSharma@yahoo.com'),
+('Adam','Collins','104 Hilltop Dr.','Concord','94519','California','ACollins@yahoo.com'),
+('Taylor','Martin','1040 Greenbush Drive','Newton','V2L3W8','British Columbia','TMartin@yahoo.com'),
+('Gabriel','Collins','1040 Northridge Road','Woodland Hills','91364','California','GCollins@yahoo.com'),
+('Randall','Martin','1042 Hooftrail Way','Newcastle','2300','New South Wales','RMartin@yahoo.com'),
+('Samantha','Jenkins','1046 Cloverleaf Circle','Shawnee','V8Z 4N5','British Columbia','SJenkins@yahoo.com'),
+('Justin','Simmons','1046 San Carlos Avenue','Colma','94014','California','JSimmons@yahoo.com'),
+('Ethan','Winston','1047 Las Quebradas Lane','Oak Bay','V8P','British Columbia','EWinston@yahoo.com'),
+('Hunter','Roberts','1048 Burwood Way','Haney','V2W 1W2','British Columbia','HRoberts@yahoo.com'),
+('Nathaniel','Murphy','105 Woodruff Ln.','Oakland','94611','California','NMurphy@yahoo.com'),
+('Charles','Wilson','1050 Creed Ave','Lebanon','97355','Oregon','CWilson@yahoo.com'),
+('Carrie','Alvarez','1050 Greenhills Circle','Lane Cove','1597','New South Wales','CAlvarez@yahoo.com'),
+('Paige','Alexander','1050 Greenhills Circle','Langley','V3A 4R2','British Columbia','PAlexander@yahoo.com');
+
+
+
+
+INSERT INTO ROLE VALUES
+('PRESENTER'),
+('STUDENT'),
+('VOLUNTEER');
+
+
+
+INSERT INTO PERSON_ROLE VALUES
+(1,1),
+(2,2),
+(3,3),
+(4,1),
+(5,2),
+(6,3),
+(7,1),
+(8,3),
+(9,2),
+(10,1),
+(11,2),
+(12,3),
+(13,1),
+(14,2),
+(15,3),
+(16,1),
+(17,2),
+(18,3),
+(19,1),
+(1,2),
+(2,3),
+(3,1),
+(4,2),
+(5,3),
+(6,1)
+
+INSERT INTO SPONSOR VALUES
+('VMWare','Platinum Sponsor'),
+('Verizon Digital Media Services','Platinum Sponsor'),
+('Microsoft Corporation (GAP) (GAP Sponsor)','Platinum Sponsor'),
+('Tintri','Platinum Sponsor'),
+('Amazon Web Services, LLC','Gold Sponsor'),
+('Pyramid Analytics (GAP Sponsor)','Gold Sponsor'),
+('Pure Storage','Gold Sponsor'),
+('Profisee','Gold Sponsor'),
+('NetLib Security','Silver Sponsor'),
+('Melissa Data Corp.','Silver Sponsor'),
+('Red Gate Software','Silver Sponsor'),
+('SentryOne','Silver Sponsor'),
+('Hush Hush','Bronze Sponsor'),
+('COZYROC','Bronze Sponsor'),
+('SQLDocKit by Acceleratio Ltd.','Bronze Sponsor');
+
+INSERT INTO PRESENTATION VALUES
+('Top 5 Ways to Improve Your triggers','Intermediate','New York'),
+('T-SQL : Bad Habits & Best Practices','Beginner','New York'),
+('The future of the data professional','Beginner','New York'),
+('Clusters Your Way: #SANLess Clusters for Physical, Virtual, and Cloud Environments','	Non-Technical','Budapest'),
+('Did You Vote Today? A DBAs Guide to Cluster Quorum','	Advanced','Budapest'),
+('Hybrid Solutions: The Future of SQL Server Disaster Recovery','Intermediate','Budapest'),
+('Is That A Failover Cluster On Your Laptop/Desktop?','Intermediate','New York'),
+('Hacking the SSIS 2012 Catalog','Beginner','Budapest'),
+('Introduction to SQL Server - Part 1','Beginner','Budapest'),
+('Introduction to SQL Server - Part 2','Beginner','Budapest'),
+('How to Think Like the Engine','Intermediate','Kiyv'),
+('Watch Brent Tune Queries','Intermediate','Kiyv'),
+('How to Think Like the Engine','Intermediate','Kiyv'),
+('Watch Brent Tune Queries','Intermediate','Kiyv'),
+('A Dynamic World Demands Dynamic SQL','Intermediate','Budapest'),
+('A Dynamic World Demands Dynamic SQL','Intermediate','Budapest'),
+('Dimensional Modeling Design Patterns: Beyond Basics','Intermediate','Kiev'),
+('Dimensional Modeling Design Patterns: Beyond Basics','Intermediate','Budapest'),
+('SQL Server Reporting Services, attendees choose','Intermediate','Kiev'),
+('T-SQL for Application Developers - Attendees chose','Intermediate','Kiev'),
+('What is new in SQL Server Integration Services 2012','Intermediate','Budapest'),
+('Why OLAP? Building SSAS cubes and benefits of OLAP','Intermediate','Kiev');
+
+
+
+INSERT INTO EVENT VALUES
+('SQLSaturday #626 - Budapest 2017', '5/6/2017', 'Budapest', 'Europe/Middle East/Africa'),
+('SQLSaturday #615 - Baltimore 2017', '5/6/2017', 'Baltimore', 'Canada/US'),
+('SQLSaturday #608 - Bogota 2017', '5/13/2017', 'Bogota', 'Latin America'),
+('SQLSaturday #616 - Kyiv 2017', '5/20/2017', 'Kyiv', 'Europe/Middle East/Africa'),
+('SQLSaturday #588 - New York City 2017', '5/20/2017', 'New York City', 'Canada/US'),
+('SQLSaturday #630 - Brisbane 2017', '5/27/2017', 'Brisbane', 'Asia Pacific'),
+('SQLSaturday #599 - Plovdiv 2017', '5/27/2017', 'Plovdiv', 'Europe/Middle East/Africa'),
+('SQLSaturday #638 - Philadelphia 2017', '6/3/2017', 'Philadelphia', 'Canada/US');
+
+
+INSERT INTO ROOM VALUES
+('S1'),
+('S2'),
+('S3'),
+('S4'),
+('S5'),
+('S6'),
+('S7'),
+('S8'),
+('S9'),
+('S10'),
+('S11'),
+('S12'),
+('S13'),
+('S14'),
+('S15'),
+('S16'),
+('S17');
+
+
+INSERT INTO TRACK VALUES
+('TRACK1'),
+('TRACK2'),
+('TRACK3');
+
+
+INSERT INTO SCHEDULE VALUES
+('09:00:00',1,1),
+('09:00:00',2,2),
+('09:00:00',3,3),
+('09:00:00',4,4),
+('09:00:00',5,5),
+('09:00:00',6,6),
+('13:30:00',7,7),
+('13:30:00',8,8),
+('13:30:00',9,9),
+('13:30:00',10,10),
+('13:30:00',11,11),
+('13:30:00',12,12),
+('15:00:00',13,13),
+('15:00:00',14,14),
+('15:00:00',15,15),
+('15:00:00',16,16),
+('15:00:00',17,17),
+('15:00:00',18,1),
+('15:00:00',19,2),
+('15:00:00',20,3),
+('15:00:00',21,4),
+('15:00:00',22,5);
+
+
+INSERT INTO TRACK_PRESENTATION VALUES
+(1,1),
+(2,2),
+(3,3),
+(1,4),
+(2,5),
+(3,6),
+(1,7),
+(2,8),
+(3,9),
+(1,10),
+(2,11),
+(3,12),
+(1,13),
+(2,14),
+(3,15),
+(1,16),
+(2,17),
+(3,18),
+(1,19),
+(2,20),
+(3,21),
+(1,22);
+
+INSERT INTO SCHEDULE_EVENT VALUES
+(1,1),
+(2,2),
+(3,3),
+(4,4),
+(5,5),
+(6,6),
+(7,7),
+(8,8),
+(1,9),
+(2,10),
+(3,11),
+(4,12),
+(5,13),
+(6,14),
+(7,15),
+(8,16),
+(1,17),
+(2,18),
+(3,19),
+(4,20),
+(5,21),
+(6,22);
+
+INSERT INTO PRESENTER_PRESENTATION VALUES
+(1,1),
+(3,2),
+(4,3),
+(7,4),
+(10,5),
+(13,6),
+(16,7),
+(19,8),
+(1,9),
+(3,10),
+(4,11),
+(7,12),
+(10,13),
+(13,14),
+(16,15),
+(19,16),
+(1,17),
+(3,18),
+(4,19),
+(7,20),
+(10,21),
+(13,22);
+
+
+
+
+
