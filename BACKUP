@@ -1,0 +1,8 @@
+USE s17guest45;
+GO
+BACKUP DATABASE s17guest45
+    TO DISK = '\s17guest45.Bak'
+      WITH FORMAT,
+        MEDIANAME = 'Z_SQLServerBackups',
+        NAME = 'Full Backup of s17guest45';
+GO
