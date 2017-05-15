@@ -1,0 +1,12 @@
+CREATE PROC selectPresentationInBudapest
+  AS
+  BEGIN
+    BEGIN TRY
+
+      SELECT * FROM TRACK, PRESENTATION WHERE PRESENTATION_LOCATION = 'Budapest';
+
+    END TRY
+    BEGIN CATCH
+      SELECT ERROR_MESSAGE() AS ErrorMessage;
+    END CATCH
+  END
