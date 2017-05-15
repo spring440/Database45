@@ -1,0 +1,53 @@
+CREATE PROC insertPresentation @speaker VARCHAR(100), @presentation VARCHAR(200)
+  AS
+  BEGIN
+	
+	BEGIN TRY
+		DECLARE @count integer = 1,
+              @name varchar(255) = (SELECT RTRIM(@speaker)),
+              @firstName varchar(100) = '',
+              @lastName varchar(100) = '',
+              @check bit = 0;
+
+		WHILE @count <= (SELECT LEN(@name))
+		  BEGIN
+
+			IF (SELECT SUBSTRING(@name, @count, 1)) = ' '
+			  BEGIN
+
+				SET @firstName = (SELECT SUBSTRING(@name, 0, @count));
+				SET @lastName = (SELECT SUBSTRING(@name, @count + 1, (SELECT LEN(@name))));
+				SET @check = 1;
+			  END
+
+			SET @count = @count + 1;
+		  END
+
+		IF @check = 0
+          RAISERROR('ERROR at proc insertPresentation: WRONG INPUT!!! Presenter name should be firstname and lastname separated by a space!. Ex: Barrack Obama', 1, 1);
+		ELSE
+
+			IF EXISTS (SELECT * FROM PERSON p WHERE p.PERSON_FIRST_NAME=@firstName AND p.PERSON_LAST_NAME=@lastName )
+				BEGIN
+
+					INSERT INTO PRESENTATION VALUES (@presentation,'','');
+					DECLARE @presentationId int = (SELECT pr.PRESENTATION_ID FROM PRESENTATION pr WHERE pr.PRESENTATION_TITLE = @presentation);
+					DECLARE @id int = (SELECT p.PERSON_ID FROM PERSON p WHERE p.PERSON_FIRST_NAME = @firstName AND p.PERSON_LAST_NAME = @lastName);
+					INSERT INTO PRESENTER_PRESENTATION VALUES (@id, @presentationId);
+
+				END
+				
+			ELSE 
+				BEGIN
+					INSERT INTO PERSON VALUES (@firstName, @lastName,'','','','','');
+					INSERT INTO PRESENTATION VALUES (@presentation,'','');			
+					DECLARE @id1 int = (SELECT p1.PERSON_ID FROM PERSON p1 WHERE p1.PERSON_FIRST_NAME = @firstName AND p1.PERSON_LAST_NAME = @lastName);
+					DECLARE @presentationId1 int = (SELECT pr1.PRESENTATION_ID FROM PRESENTATION pr1 WHERE pr1.PRESENTATION_TITLE = @presentation);
+					INSERT INTO PRESENTER_PRESENTATION VALUES (@id1, @presentationId1);
+				END
+	END TRY
+	BEGIN CATCH
+	      SELECT ERROR_MESSAGE() AS ErrorMessage;
+    END CATCH
+
+  END
